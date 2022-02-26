@@ -1,9 +1,13 @@
+from multiprocessing import context
 from django.shortcuts import render
+from .models import Category, Picture
 
 # Create your views here.
 
 def gallery(request):
-    return render(request, 'pictures/gallery.html')
+    categories = Category.objects.all()
+    context = {'categories': categories}
+    return render(request, 'pictures/gallery.html', context)
 
 
 def viewPicture(request, pk):
