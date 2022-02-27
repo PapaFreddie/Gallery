@@ -8,8 +8,17 @@ from .models import Category, Picture
 # Create your views here.
 
 def gallery(request):
+    category = request.GET.get('category')
+    if category == None:
+        pictures= Picture.objects.all()
+
+    else:
+        pictures = Picture.objects.filter(category__name = category)
+
+
+    #print('category:', category)
     categories = Category.objects.all()
-    pictures = Picture.objects.all()
+    #pictures = Picture.objects.all()
     context = {'categories': categories, 'pictures': pictures}
     return render(request, 'pictures/gallery.html', context)
 
