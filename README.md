@@ -21,13 +21,17 @@ Testing the application
 
 ## Features
 
-- User can see pictures categories
+- User can see image categories
 
 - User can add new category of their choice
 
-- User can add pictures of their choice
+- User can add images of their choice
 
 - User can view picture details
+
+- User can save image
+
+- User can open image url on different tab
 
 
 ## Technologies used
