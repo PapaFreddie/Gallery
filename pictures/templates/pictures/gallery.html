@@ -62,21 +62,14 @@
                 <div class="row">
                     {% for picture in pictures %}
 
-
                     <div class="col-md-4">
-
-
                         <div class="card m-1">
-
-
                             <img class="image-thumbnail" src="{{picture.image.url}}" class="card-img-top" alt="City Image">
                             <div class="card-body">
                               <small>Category: {{picture.category.name}}</small>
                             </div>
                             <a href="{% url 'picture' picture.id %}" class="btn btn-secondary btn-sm m-1">View details</a>
                         </div>
-                        
- 
                     </div> 
                     {% empty %}
                     <h4>No pictures found!</h4>
