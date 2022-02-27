@@ -11,13 +11,30 @@
         height: 200px;
         object-fit: cover;
     }
+    h4{
+        color: white;
+    }
 </style>
 </head>
-<body class="my-5">
-    <div class="navbar">
-        hhh
-    </div>
-    <div class="container">
+<body class="my-3">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <h4>My Gallery</h4>
+
+          <a class="navbar-brand" href="{% url 'gallery' %}">
+            Home
+          </a>
+          <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </nav>
+    <div class="container m-4">
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
@@ -40,11 +57,14 @@
                   </div>
             </div>
             <div class="col-md-8">
+                {% for picture in pictures %}
+
                 <div class="row">
 
-                    {% for picture in pictures %}
                     <div class="col-md-4">
-                        <div class="card">
+
+                        <div class="card m-3">
+
                             <img class="image-thumbnail" src="{{picture.image.url}}" class="card-img-top" alt="City Image">
                             <div class="card-body">
                               <small>Category: {{picture.category.name}}</small>
