@@ -11,16 +11,16 @@
         height: 200px;
         object-fit: cover;
     }
-    h4{
-        color: white;
-    }
+
+
 </style>
 </head>
 <body class="my-3">
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <h4>My Gallery</h4>
-
+          <a class="navbar-brand" href="{% url 'gallery' %}">
+                <h2>My Gallery</h2>
+              </a>
           <a class="navbar-brand" href="{% url 'gallery' %}">
             Home
           </a>
@@ -36,7 +36,7 @@
       </nav>
     <div class="container m-4">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
                       Filter by categories
@@ -56,14 +56,14 @@
                     </ul>
                   </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-9">
                 {% for picture in pictures %}
 
                 <div class="row">
 
                     <div class="col-md-4">
 
-                        <div class="card m-3">
+                        <div class="card">
 
                             <img class="image-thumbnail" src="{{picture.image.url}}" class="card-img-top" alt="City Image">
                             <div class="card-body">
