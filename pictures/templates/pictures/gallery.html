@@ -19,7 +19,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'gallery' %}">
-                <h2>My Gallery</h2>
+                <h4>My Gallery</h4>
               </a>
           <a class="navbar-brand" href="{% url 'gallery' %}">
             Home
@@ -42,28 +42,32 @@
                       Filter by categories
                     </div>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">
-                          <a href=" {% url 'gallery' %} ">All</a>
+                        <li class="list-group-item">
+                            <a href=" {% url 'gallery' %} ">All</a>
                         </li>
 
                       {% for category in categories %}
-                      <li class="list-group-item">
-                        <a href=" {% url 'gallery' %}?category={{category.name}}">{{category.name}}</a>
+
+                        <li class="list-group-item">
+                            <a href=" {% url 'gallery' %}?category={{category.name}}">{{category.name}}</a>
                         </li>
                       {% endfor %}
    
-                      <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-1">Add Picture</a>
+                        <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-1">Add Picture</a>
                     </ul>
                   </div>
             </div>
             <div class="col-md-9">
-                {% for picture in pictures %}
 
                 <div class="row">
+                    {% for picture in pictures %}
+
 
                     <div class="col-md-4">
 
+
                         <div class="card m-1">
+
 
                             <img class="image-thumbnail" src="{{picture.image.url}}" class="card-img-top" alt="City Image">
                             <div class="card-body">
@@ -74,11 +78,12 @@
                         
  
                     </div> 
+                    {% empty %}
+                    <h4>No pictures found!</h4>
+                    {% endfor %}
                    
                 </div>
-                {% empty %}
-                <h4>No pictures found!</h4>
-                {% endfor %}
+                
 
                 
             </div>
