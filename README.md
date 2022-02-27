@@ -34,6 +34,7 @@ Testing the application
 
 - Python 3.8.10
 - Django 4.0.2
+- Heroku
 
 ## Bugs
 No known bugs
