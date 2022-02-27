@@ -15,9 +15,9 @@
                 <a href="{% url 'gallery' %" class="btn btn-secondary btn-sm m-1">Back to Gallery</a>
 
                 <div style="height: 100vh;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0rzlYOIXPIleeCaCm4FOowT48VJKVy3fFXA&usqp=CAU" style="width: 500px; height:450px;">
+                    <img src="{{ photo.image.url }}" style="width: 500px; height:450px;">
 
-                    <p>A city is a large human settlement.</p>
+                    <p>{{ photo.description }}</p>
                 </div>
             </div>
 

@@ -1,4 +1,5 @@
 from multiprocessing import context
+from signal import pthread_kill
 from django.shortcuts import render
 from .models import Category, Picture
 
@@ -6,12 +7,14 @@ from .models import Category, Picture
 
 def gallery(request):
     categories = Category.objects.all()
-    context = {'categories': categories}
+    pictures = Picture.objects.all()
+    context = {'categories': categories, 'pictures': pictures}
     return render(request, 'pictures/gallery.html', context)
 
 
 def viewPicture(request, pk):
-    return render(request, 'pictures/picture.html')
+    picture = Picture.objects.get(id=pk)
+    return render(request, 'pictures/picture.html', {'picture':picture})
 
 
 def addPicture(request):

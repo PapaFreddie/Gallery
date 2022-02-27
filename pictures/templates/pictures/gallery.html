@@ -26,64 +26,33 @@
 
                       {% for category in categories %}
                       <li class="list-group-item">{{category.name}}</li>
-
-
                       {% endfor %}
    
                       <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm m-1">Add Picture</a>
-                      
-
                     </ul>
                   </div>
             </div>
             <div class="col-md-8">
                 <div class="row">
+
+                    {% for picture in pictures %}
                     <div class="col-md-4">
                         <div class="card">
-                            <img class="image-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0rzlYOIXPIleeCaCm4FOowT48VJKVy3fFXA&usqp=CAU" class="card-img-top" alt="City Image">
+                            <img class="image-thumbnail" src="{{picture.image.url}}" class="card-img-top" alt="City Image">
                             <div class="card-body">
-                              <small>Category: Cities</small>
+                              <small>Category: {{picture.category.name}}</small>
                             </div>
-                            <a href="{% url 'picture' 3 %}" class="btn btn-secondary btn-sm m-1">View details</a>
+                            <a href="{% url 'picture' picture.id %}" class="btn btn-secondary btn-sm m-1">View details</a>
                         </div>
                         
  
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="image-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0rzlYOIXPIleeCaCm4FOowT48VJKVy3fFXA&usqp=CAU" class="card-img-top" alt="City Image">
-                            <div class="card-body">
-                              <small>Category: Cities</small>
-                            </div>
-                            <a href="{% url 'picture' 3 %}" class="btn btn-secondary btn-sm m-1">View details</a>
-                        </div>
-                        
- 
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="image-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0rzlYOIXPIleeCaCm4FOowT48VJKVy3fFXA&usqp=CAU" class="card-img-top" alt="City Image">
-                            <div class="card-body">
-                              <small>Category: Cities</small>
-                            </div>
-                            <a href="{% url 'picture' 3 %}" class="btn btn-secondary btn-sm m-1">View details</a>
-                        </div>
-                        
- 
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card my-1">
-                            <img class="image-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0rzlYOIXPIleeCaCm4FOowT48VJKVy3fFXA&usqp=CAU" class="card-img-top" alt="City Image">
-                            <div class="card-body">
-                              <small>Category: Cities</small>
-                            </div>
-                            <a href="{% url 'picture' 3 %}" class="btn btn-secondary btn-sm m-1">View details</a>
-                        </div>
-                        
- 
-                    </div>
+                    </div> 
                    
                 </div>
+                {% empty %}
+                <h4>No pictures found!</h4>
+                {% endfor %}
+
                 
             </div>
             
